@@ -46,6 +46,10 @@ jobs:
       #     platforms: linux/amd64 # target image
       #     push: true
       #     tags: manupanand/test:latest
+      - name: Login docker 
+        run: |
+          echo "${DOCKER_TOKEN}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+      
       - name: Build Docker image
         run: |
           
@@ -55,7 +59,5 @@ jobs:
           ls -la
           cd idp-ui;
           ls -la
-          docker buildx build --platform linux/arm64 -t manupanand/test:arm64-latest . | tee -a $HOME/dockerbuild.log
-      - name: Login docker 
-        run: |
-          echo "${DOCKER_TOKEN}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+          docker buildx build --platform linux/amd64 -t manupanand/test:latest --push . | tee -a $HOME/dockerbuild.log
+    
