@@ -49,9 +49,9 @@ jobs:
       - name: Build Docker image
         run: |
           ls -la
-          rm -rf /var/log/dockerbuild.log
-          touch /var/log/dockerbuild.log
-          chmod 775 /var/log/dockerbuild.log
+          rm -rf $HOME/dockerbuild.log
+          touch $HOME/dockerbuild.log
+          chmod 775 $HOME/dockerbuild.log
           cd idp-ui;
 
           docker buildx build --platform linux/amd64 -t manupanand/test:latest . | tee -a /var/log/dockerbuild.log
