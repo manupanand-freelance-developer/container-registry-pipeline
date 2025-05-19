@@ -43,5 +43,6 @@ jobs:
         with:
           context: ./idp-ui
           file: ./idp-ui/Dockerfile
+          platforms: linux/amd64
           push: true
           tags: manupanand/test:latest
