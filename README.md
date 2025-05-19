@@ -45,6 +45,6 @@ docker pull yourdockerhubusername/nextdock:latest
 
 ### License
 
-MIT license.
+GNU GENERAL PUBLIC LICENSE,2007
 
 
