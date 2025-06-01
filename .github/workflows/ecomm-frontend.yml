@@ -56,8 +56,5 @@ jobs:
           rm -rf $HOME/dockerbuild.log
           touch $HOME/dockerbuild.log
           chmod 775 $HOME/dockerbuild.log
-          ls -la
-          cd idp-ui;
-          ls -la
           docker buildx build --platform linux/arm64 -t manupanand/ecomm-frontend:latest --push . 2>&1| tee -a $HOME/dockerbuild.log
     
