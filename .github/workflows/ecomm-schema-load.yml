@@ -1,4 +1,4 @@
-name: Ecomm- Frontend-Build and Push Docker Image
+name: Ecomm- Schema load-Build and Push Docker Image
 
 on:
   workflow_dispatch:
@@ -24,7 +24,7 @@ jobs:
       - name: Check out  repo
         uses: actions/checkout@v4
         with:
-          repository: manupanand-freelance-developer/ecomm-frontend
+          repository: manupanand-freelance-developer/schema-load
           ref: ${{github.ref}} #ref- branches
           
 
@@ -56,5 +56,5 @@ jobs:
           rm -rf $HOME/dockerbuild.log
           touch $HOME/dockerbuild.log
           chmod 775 $HOME/dockerbuild.log
-          docker buildx build --platform linux/arm64 -t manupanand/ecomm-frontend:latest --push . 2>&1| tee -a $HOME/dockerbuild.log
+          docker buildx build --platform linux/arm64 -t manupanand/schema:latest --push . 2>&1| tee -a $HOME/dockerbuild.log
     
